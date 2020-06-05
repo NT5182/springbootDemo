@@ -9,11 +9,11 @@
     </appender>
 
     <!--  <property name="LOG_HOME" value="/ccs/log" /> -->
-   	<property name="LOG_HOME" value="../springbootlog" />
+   	<property name="LOG_HOME" value="../springbootDemolog" />
    	
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${LOG_HOME}/springbootlog.%d{yyyy-MM-dd}.%i.log
+            <FileNamePattern>${LOG_HOME}/springbootDemolog.%d{yyyy-MM-dd}.%i.log
             </FileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 				<maxFileSize>30MB</maxFileSize>

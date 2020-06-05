@@ -1,7 +1,0 @@
-DROP TABLE tbl_dept;
-CREATE TABLE tbl_dept (dept_id int NOT NULL AUTO_INCREMENT, dept_name varchar(255) NOT NULL, PRIMARY KEY (dept_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-DROP TABLE tbl_emp;
-CREATE TABLE tbl_emp (emp_id int NOT NULL AUTO_INCREMENT, emp_name varchar(255) NOT NULL, gender varchar(1), email varchar(255), d_id int, PRIMARY KEY (emp_id), INDEX tbl_emp_fk1 (d_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-DROP TABLE user;
-CREATE TABLE user (id int NOT NULL AUTO_INCREMENT, username varchar(50), password varchar(50), name varchar(50), PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE tbl_emp ADD CONSTRAINT tbl_emp_fk1 FOREIGN KEY (d_id) REFERENCES tbl_dept (dept_id);
