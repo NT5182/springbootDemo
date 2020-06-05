@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <!-- 控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度,%logger{50}：表示logger名字最长50个字符否则按照句点分割,%msg：日志消息，%n是换行符 -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} -%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--  <property name="LOG_HOME" value="/ccs/log" /> -->
+   	<property name="LOG_HOME" value="../springbootlog" />
+   	
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/springbootlog.%d{yyyy-MM-dd}.%i.log
+            </FileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>30MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+            <!-- <MaxHistory>30</MaxHistory> --><!-- 日志文件保留天数 -->
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} -%msg%n</pattern>
+        </encoder>
+        <!-- 日志文件最大的大小 -->
+        <!-- <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10KB</MaxFileSize>
+        </triggeringPolicy> -->
+    </appender>
+
+    <!-- 日志输出级别 -->
+    <!-- OFF >FATAL > ERROR > WARN > INFO > DEBUG > ALL -->
+    <root level="DEBUG">
+        <appender-ref ref="file" />
+    </root>
+    <root level="INFO">
+        <appender-ref ref="console" />
+    </root>
+</configuration>

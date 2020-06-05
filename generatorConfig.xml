@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<!DOCTYPE generatorConfiguration    
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"    
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 一个数据库一个context,defaultModelType="flat" 大数据字段，不分表 -->
+	<context id="sqlserverTables" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+	
+	<!-- <properties resource="database.properties" /> -->
+	<!-- <property name="location" value="classpath:database.properties" /> -->
+	
+	<!--classPathEntry:数据库的JDBC驱动,换成你自己的驱动位置 可选 -->
+    <!-- <classPathEntry location="E:\Workspaces\MavenReposity\mysql\mysql-connector-java\8.0.17\mysql-connector-java-8.0.17.jar"/> -->
+	
+	<!-- 生成的Java文件的编码 -->
+    <property name="javaFileEncoding" value="utf-8"/>
+    
+    <commentGenerator>
+		<!-- 注释里不添加日期 -->
+    	<property name="suppressDate" value="true"/>
+		<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+		<property name="suppressAllComments" value="true" />
+	</commentGenerator>
+	
+	<!--数据库链接URL，用户名、密码 -->
+	<jdbcConnection driverClass="com.mysql.jdbc.Driver"	connectionURL="jdbc:mysql://localhost:3306/myccbs" userId="root" password="123456">
+	</jdbcConnection>
+	
+	<!-- 类型转换 -->
+	<javaTypeResolver>
+		<!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+		<property name="forceBigDecimals" value="false" />
+	</javaTypeResolver>
+		
+
+
+	<!-- 生成模型的包名和位置-->
+	<javaModelGenerator targetPackage="com.zcz.entity" targetProject="springboot">
+		<!-- 是否让schema作为包的后缀 -->
+		<property name="enableSubPackages" value="true" />
+		<!-- 从数据库返回的值去掉前后空格 -->
+		<property name="trimStrings" value="true" />
+	</javaModelGenerator>
+
+
+
+	<!-- 生成映射文件的包名和位置-->
+	<sqlMapGenerator targetPackage="com.zcz.mapper" targetProject="springboot">
+		<property name="enableSubPackages" value="true" />
+	</sqlMapGenerator>
+
+
+
+	<!-- 生成接口dao -->
+	<!-- 
+	<javaClientGenerator targetPackage="com.org.yw.dao.sms" targetProject="src/main/java" type="XMLMAPPER" >
+		<property name="enableSubPackages" value="false" />
+	</javaClientGenerator>
+	 -->
+
+
+
+<!-- 柜员表	reg_employee -->
+<!--
+		<table tableName="reg_employee" domainObjectName="RegEmployee"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+-->
+		
+		
+<!-- 用户表	reg_menu -->
+		<table tableName="regemployee" domainObjectName="regUser"
+			enableCountByExample="false"
+			enableUpdateByExample="false"
+			enableDeleteByExample="false"
+			enableSelectByExample="false"
+			selectByExampleQueryId="false"
+			enableSelectByPrimaryKey="true"
+			enableUpdateByPrimaryKey="true"
+            enableDeleteByPrimaryKey="true">
+			<property name="useActualColumnNames" value="false" />
+		</table>
+
+
+	</context>
+</generatorConfiguration>      
